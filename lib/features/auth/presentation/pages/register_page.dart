@@ -22,18 +22,16 @@ class RegisterPage extends ConsumerStatefulWidget {
 
 class _RegisterPageState extends ConsumerState<RegisterPage> {
   bool _obscure = true;
-  int _tabIndex = 1; // 0=Sign In, 1=Sign Up
+  int _tabIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     final authState = ref.watch(authControllerProvider);
     final notifier = ref.read(authControllerProvider.notifier);
 
-    // Navigate to home on successful registration (which now includes auto-login)
     if (authState.loginSuccess) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.go('/');
-        // Reset success flag
         notifier.clearSuccess();
       });
     }
@@ -63,7 +61,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     children: [
                       const Spacer(),
 
-                      // ======= BLOQUE PRINCIPAL =======
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -99,7 +96,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           ),
                           const SizedBox(height: 24),
 
-                          // Segmented control
                           Container(
                             decoration: BoxDecoration(
                               color: kCard,
@@ -127,7 +123,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           ),
                           const SizedBox(height: 24),
 
-                          // Form
                           const _Label('Nombre Completo'),
                           const SizedBox(height: 8),
                           _Input(
@@ -209,7 +204,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                             ),
                           const SizedBox(height: 10),
 
-                          // Divider "Or"
                           Row(
                             children: [
                               Expanded(
@@ -229,7 +223,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Social
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [

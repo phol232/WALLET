@@ -103,7 +103,6 @@ class AuthController extends StateNotifier<AuthState> {
         state.email,
         state.password,
       );
-      // After successful registration, auto-login with same credentials
       final loginResponse = await loginUseCase.execute(
         state.email,
         state.password,
@@ -121,12 +120,10 @@ class AuthController extends StateNotifier<AuthState> {
   }
 
   void loginWithSocial(String provider) {
-    // Implement OAuth login
     print('Iniciando sesión con $provider');
   }
 
   void registerWithSocial(String provider) {
-    // Implement OAuth register
     print('Registrándose con $provider');
   }
 

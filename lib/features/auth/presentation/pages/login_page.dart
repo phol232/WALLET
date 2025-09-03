@@ -29,11 +29,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final authState = ref.watch(authControllerProvider);
     final notifier = ref.read(authControllerProvider.notifier);
 
-    // Navigate to home on successful login
     if (authState.loginSuccess) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.go('/');
-        // Reset success flag
         notifier.clearSuccess();
       });
     }
@@ -52,7 +50,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           child: CustomScrollView(
             slivers: [
               SliverFillRemaining(
-                hasScrollBody: false, // ocupa todo el alto disponible
+                hasScrollBody: false,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 24,
@@ -61,12 +59,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Spacer(), // margen superior simétrico
-                      // ======= BLOQUE PRINCIPAL (centrado) =======
+                      const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          // Header
                           Text(
                             _tabIndex == 0 ? 'Bienvenido de Vuelta' : 'Crear',
                             textAlign: TextAlign.left,
@@ -100,7 +96,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           ),
                           const SizedBox(height: 24),
 
-                          // Segmented control
                           Container(
                             decoration: BoxDecoration(
                               color: kCard,
