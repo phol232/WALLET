@@ -123,7 +123,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           ),
                           const SizedBox(height: 24),
 
-                          // Form
                           const _Label('Ingresa Email'),
                           const SizedBox(height: 8),
                           _Input(
@@ -152,7 +151,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           ),
                           const SizedBox(height: 20),
 
-                          // CTA
                           SizedBox(
                             height: 54,
                             child: ElevatedButton(
@@ -197,7 +195,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             ),
                           const SizedBox(height: 10),
 
-                          // Divider "Or"
                           Row(
                             children: [
                               Expanded(
@@ -216,8 +213,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             ],
                           ),
                           const SizedBox(height: 16),
-
-                          // Social buttons
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
@@ -235,9 +230,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         ],
                       ),
 
-                      // ======= FIN BLOQUE PRINCIPAL =======
-                      const Spacer(), // margen inferior simétrico
-                      // Bottom link fijo (siempre visible al final)
+                      const Spacer(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

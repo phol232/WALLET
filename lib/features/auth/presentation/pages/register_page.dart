@@ -159,7 +159,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           ),
                           const SizedBox(height: 20),
 
-                          // CTA
                           SizedBox(
                             height: 54,
                             child: ElevatedButton(
@@ -240,7 +239,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                         ],
                       ),
 
-                      // ======= FIN BLOQUE PRINCIPAL =======
                       const Spacer(),
 
                       Row(

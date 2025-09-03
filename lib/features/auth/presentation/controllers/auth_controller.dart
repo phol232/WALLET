@@ -136,7 +136,6 @@ class AuthController extends StateNotifier<AuthState> {
   }
 }
 
-// Providers
 final dioClientProvider = Provider((ref) => DioClient());
 
 final authRemoteDataSourceProvider = Provider(
