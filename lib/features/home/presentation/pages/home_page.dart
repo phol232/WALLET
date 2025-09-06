@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mart_wallet/features/profile/presentation/pages/profile_page.dart';
 
+const kLemon = Color(0xFFB9FF3C);
+
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
@@ -37,7 +39,18 @@ class _HomePageState extends ConsumerState<HomePage> {
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
+        onDestinationSelected: (i) async {
+          // Si estamos saliendo de Cuenta (idx 3), preguntar si hay cambios sin guardar
+          if (_index == 3 && i != 3) {
+            final guard = ref.read(profileLeaveGuardProvider);
+            if (guard != null) {
+              final canLeave = await guard();
+              if (!mounted) return;
+              if (!canLeave) return; // cancelar cambio de tab
+            }
+          }
+          setState(() => _index = i);
+        },
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_outlined),
@@ -128,12 +141,12 @@ class _HeaderBalance extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF1A2E1F), Color(0xFF0F1A12)],
+          colors: [kLemon, Color(0xFFA1E62E)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF2E3C30)),
+        border: Border.all(color: const Color(0xFF8CCF28)),
       ),
       padding: const EdgeInsets.all(18),
       child: Column(

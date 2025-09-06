@@ -312,7 +312,6 @@ class _Label extends StatelessWidget {
 
 class _Input extends StatelessWidget {
   const _Input({
-    super.key,
     required this.hint,
     required this.icon,
     this.onChanged,

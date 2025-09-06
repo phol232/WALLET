@@ -134,6 +134,15 @@ class AuthController extends StateNotifier<AuthState> {
   void clearSuccess() {
     state = state.copyWith(loginSuccess: false, registerSuccess: false);
   }
+
+  Future<void> logout() async {
+    try {
+      await authStorage.clearTokens();
+    } finally {
+      // Reset local auth state
+      state = AuthState();
+    }
+  }
 }
 
 final dioClientProvider = Provider((ref) => DioClient());
